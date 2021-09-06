@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require('express')
+const cors = require('cors')
 const fetch = require('node-fetch')
 
 const app = express()
@@ -7,6 +8,8 @@ const app = express()
 const path_frontend = path.resolve(__dirname, 'frontend', 'build')
 
 const TOKEN_PRIVADO = 'k4d2956bd531ab61d44f4fa07304b20e13913815'
+
+app.use(cors())
 
 app.get('/api/:dni', (req,res) => {
 	const dni = req.params.dni
